@@ -26,7 +26,7 @@ while temp != source:
     pathW.appendleft(weights[temp])
 path.appendleft(source)
 
-# %% Print Results
+# %% Print Result
 print(list(path), "Total cost: ", nodeCosts[target])
 print("Cost per Node: ", list(pathW))
 # %%
