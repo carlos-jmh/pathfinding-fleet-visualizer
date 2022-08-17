@@ -10,7 +10,7 @@ A web server using Go, JavaScript, and MDBootstrap
 # Python
 
 
-Currently: When running main.py cell by cell, it'll first draw a grid with a group of weights, within a specific random distribution* (more below).
+When running main.py cell by cell, it'll first draw a grid with a group of weights, within a specific random distribution* (more below).
 Format: (x, y) weight
 
 <img src="https://user-images.githubusercontent.com/75096034/148436760-db55afbd-b53c-42d4-8d28-a5e44a428d4a.png" width="550" height="550">
