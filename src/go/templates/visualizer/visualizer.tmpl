@@ -1,0 +1,188 @@
+{{ define "visualizer.tmpl" }}
+
+{{ template "header.tmpl" .}}
+
+<body>
+    <main style="margin-top: 58px">
+        <div class="container pt-4">
+            <!-- Section: Main Navigation -->
+            <section class="mb-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <!-- Tabs Navs -->
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link active"
+                                    id="info-tab"
+                                    data-mdb-toggle="tab"
+                                    role="tab"
+                                    aria-controls="info-tab-content"
+                                    aria-selected="true"
+                                    href="#info-tab-content"
+                                >Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                        class="nav-link"
+                                        id="dijkstra-tab"
+                                        data-mdb-toggle="tab"
+                                        role="tab"
+                                        aria-controls="dijkstra-tab-content"
+                                        aria-selected="false"
+                                        href="#dijkstra-tab-content"
+                                >Dijkstra</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Tabs navs -->
+
+                    <!-- Tabs content -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div
+                                class="tab-pane fade show active"
+                                id="info-tab-content"
+                                role="tabpanel"
+                                aria-labelledby="info-tab"
+                            >
+                                <h5 class="card-title">What is Pathfinder Visualizer?</h5>
+                                <p class="card-text">
+                                    A neat little tool to visualize the way different pathfinding algorithms explore a variety of maps.
+                                </p>
+                                <p class="card-text">
+                                    Simply choose the tab with the pathfinding algorithm you would like to use (e.g. Dijkstra), <br>
+                                    and start playing around with the controls.
+                                </p>
+                            </div>
+                            <div
+                                class="tab-pane fade"
+                                id="dijkstra-tab-content"
+                                role="tabpanel"
+                                aria-labelledby="dijkstra-tab"
+                            >
+                                <!-- Game Map -->
+                                <div class="table-responsive">
+                                    <table class="table" id="gameTable"></table>
+                                </div>
+                                <div class="row gy-2 gx-3 justify-content-center align-items-center">
+                                    <div class="col-auto">
+                                        <button type="button" class="btn btn-primary" id="getPath" onclick="getPath(this)">Find Path</button>
+                                    </div>
+                                    <div class="col-auto align-self-center form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Build Mountains</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="range">
+                                            <input type="range" class="form-range" id="displaySpeed" />
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" class="btn btn-outline-primary" id="getPath" onclick="clearMap()">Clear</button>
+                                    </div>
+                                </div>
+                                <!-- Game Map -->
+                            </div>
+                        </div>
+                    <!-- Tabs content -->
+                    </div>
+                </div>
+
+            </section>
+            <!-- Section: Main Navigation -->
+
+            <!--Section: Minimal statistics cards-->
+            <section>
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div class="align-self-center">
+                                        <i class="fas fa-suitcase text-info fa-3x"></i>
+                                    </div>
+                                    <div class="text-end">
+                                        <h3 id="tilesExploredCount">-</h3>
+                                        <p class="mb-0">Tiles Explored</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div>
+                                        <h3 class="text-success" id="coverageText">- %</h3>
+                                        <p class="mb-0">Explored Coverage</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="far fa-map text-success fa-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="px-md-1">
+                                    <div class="progress mt-3 mb-1 rounded" style="height: 7px">
+                                        <div
+                                                class="progress-bar bg-success"
+                                                role="progressbar"
+                                                style="width: 0"
+                                                id="coverageBar"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div class="align-self-center">
+                                        <i class="fas fa-motorcycle text-warning fa-3x"></i>
+                                    </div>
+                                    <div class="text-end">
+                                        <h3 id="shortestPathCost">-</h3>
+                                        <p class="mb-0">Shortest Path Cost</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div>
+                                        <h3 class="text-warning" id="efficiencyText">- %</h3>
+                                        <p class="mb-0">Efficiency Rating</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="fas fa-clipboard-list text-warning fa-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="px-md-1">
+                                    <div class="progress mt-3 mb-1 rounded" style="height: 7px">
+                                        <div
+                                                class="progress-bar bg-warning"
+                                                role="progressbar"
+                                                style="width: 0"
+                                                id="efficiencyBar"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Section: Minimal statistics cards-->
+        </div>
+    </main>
+</body>
+
+{{ template "footer.tmpl" .}}
+
+{{ end }}
+

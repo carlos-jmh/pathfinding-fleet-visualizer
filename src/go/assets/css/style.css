@@ -1,0 +1,32 @@
+body {
+    background-color: #fbfbfb;
+}
+
+table {
+    border: 2px solid #ccc;
+}
+td {
+    position: relative;
+    border: none;
+}
+td:after {
+    content: '';
+    display: block;
+    margin-top: 45%;
+}
+td .map-tile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.explored {
+    background-color: #54f1f1 !important;
+}
+.shortest {
+    background-color: #1de66f !important;
+}

@@ -1,0 +1,85 @@
+{{ define "header.tmpl" }}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{{ .title }}</title>
+    <!-- Fav icon -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="assets/css/mdb.min.css" />
+    <!-- Toastr -->
+    <link rel="stylesheet" href="assets/css/toastr.min.css" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<header>
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top ">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#sidebarMenu"
+                    aria-controls="sidebarMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div
+                    class="collapse navbar-collapse justify-content-center"
+                    id="navbarCenteredExample"
+            >
+
+                <!-- Brand -->
+                <a class="navbar-brand" href="https://github.com/carlos-jmh" target="_blank">
+                    <img
+                            src="assets/img/profile.jpg"
+                            height="25"
+                            alt=""
+                            loading="lazy"
+                            class="rounded-circle"
+                    />
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pathfinder</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+
+                <!-- Right links -->
+                <ul class="navbar-nav d-flex flex-row">
+                    <!-- Github Icon -->
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://github.com/carlos-jmh/pathfinding-fleet-visualizer" target="_blank">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</header>
+
+{{ end }}
