@@ -1,10 +1,19 @@
 # pathfinding-fleet-visualizer
+
 An early version of a pathfinding and fleet management algorithm visualizer I'm working on.
+
+# Go
+View Demo: https://pathfinding-fleet-visualizer.onrender.com/
+
+A web server using Go, JavaScript, and MDBootstrap
+
+# Python
+
 
 Currently: When running main.py cell by cell, it'll first draw a grid with a group of weights, within a specific random distribution* (more below).
 Format: (x, y) weight
 
-![nodes_example](https://user-images.githubusercontent.com/75096034/148436760-db55afbd-b53c-42d4-8d28-a5e44a428d4a.png)
+<img src="https://user-images.githubusercontent.com/75096034/148436760-db55afbd-b53c-42d4-8d28-a5e44a428d4a.png" width="550" height="550">
 
 Then, using Djikstra's pathfinding algorithm, it will return a list which represents a path from source to target; along with the costs per node to get to target.  
 
