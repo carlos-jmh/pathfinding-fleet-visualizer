@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 
 	"pathfinding-fleet-visualizer/internal/server"
 
@@ -24,6 +25,10 @@ func main() {
 
 // registerRoutes registers the routes of the server
 func registerRoutes(router *gin.Engine) {
+	// always return 200 OK - for health checks
+	router.GET("/ping", func(c *gin.Context) {
+		c.String(http.StatusOK, "pong")
+	})
 	router.GET("/", server.DisplayVisualizer)
 	router.POST("/dijkstra", server.GetPath)
 }
