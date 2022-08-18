@@ -25,57 +25,43 @@
 </head>
 <header>
     <!-- Navbar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top ">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light ">
         <!-- Container wrapper -->
         <div class="container-fluid">
+
             <!-- Toggle button -->
-            <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-mdb-toggle="collapse"
-                    data-mdb-target="#sidebarMenu"
-                    aria-controls="sidebarMenu"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-            >
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
 
             <!-- Collapsible wrapper -->
-            <div
-                    class="collapse navbar-collapse justify-content-center"
-                    id="navbarCenteredExample"
-            >
-
-                <!-- Brand -->
-                <a class="navbar-brand" href="https://github.com/carlos-jmh" target="_blank">
-                    <img
-                            src="assets/img/profile.jpg"
-                            height="25"
-                            alt=""
-                            loading="lazy"
-                            class="rounded-circle"
-                    />
-                </a>
-                <!-- Left links -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pathfinder</a>
                     </li>
                 </ul>
-                <!-- Left links -->
 
-                <!-- Right links -->
-                <ul class="navbar-nav d-flex flex-row">
-                    <!-- Github Icon -->
+                <!-- Icons -->
+                <ul class="navbar-nav d-flex flex-row me-1">
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://github.com/carlos-jmh" target="_blank">
+                            <img
+                                    src="assets/img/profile.jpg"
+                                    height="16"
+                                    alt=""
+                                    loading="lazy"
+                                    class="rounded-circle"
+                            />
+                        </a>
+                    </li>
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="https://github.com/carlos-jmh/pathfinding-fleet-visualizer" target="_blank">
-                            <i class="fab fa-github fa-lg"></i>
+                            <i class="fab fa-github"></i>
                         </a>
                     </li>
                 </ul>
             </div>
-            <!-- Collapsible wrapper -->
         </div>
         <!-- Container wrapper -->
     </nav>

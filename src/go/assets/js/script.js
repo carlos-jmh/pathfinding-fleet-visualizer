@@ -71,6 +71,7 @@ function tileClicked(tile) {
         return;
     }
 
+    // switch between selecting Start and End tiles
     if (PageData.pickingStartingTile) {
         if (PageData.startingTile != null) {
             $('#' + PageData.startingTile)
