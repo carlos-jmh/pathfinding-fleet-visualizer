@@ -3,7 +3,7 @@
 An early version of a pathfinding and fleet management algorithm visualizer I'm working on.
 
 # Go
-View Demo: https://pathfinding-fleet-visualizer.onrender.com/
+View Demo: https://pathfinding-fleet-visualizer.onrender.com/ (might take up to 1min to load)
 
 A web server using Go, JavaScript, and MDBootstrap
 
